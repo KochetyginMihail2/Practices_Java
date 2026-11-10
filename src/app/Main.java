@@ -1,43 +1,31 @@
 package app;
+
 import vehicles.Car;
 import vehicles.ElectricCar;
+import vehicles.Vehicle;
+
 public class Main {
-    public static void main(String args[]){
-        System.out.println("[Тестирование класса Car]");
-        
-        // Создаем объект Car (используем конструктор со всеми параметрами)
-        Car myCar = new Car("Toyota Camry", "A123BC", "Черный", 2018);
-        
-        // ДЕМОНСТРАЦИЯ ИНКАПСУЛЯЦИИ:
+    public static void main(String[] args) {
+        // Демонстрация полиморфизма: переменные типа Vehicle ссылаются на дочерние объекты
+        Vehicle myCar = new Car("Toyota Camry", "A123BC", "Черный", 2018, "Иван", 123456, "Бензин");
+        Vehicle myEV = new ElectricCar("Tesla Model 3", "E777EE", "Белый", 2022, "Петр", 987654, 85);
 
-        // Инкапсуляция: правильный доступ через сеттеры
-        myCar.setOwnerName("Иван Иванов");
-        myCar.setInsuranceNumber(123456789);
-        myCar.setEngineType("Бензин");
-        
-        // Инкапсуляция: вывод через геттеры
-        myCar.ToString();
-        System.out.println("Владелец: " + myCar.getOwnerName());
-        System.out.println("Страховка: " + myCar.getInsuranceNumber());
-        System.out.println("Двигатель: " + myCar.getEngineType());
-        System.out.println("Возраст авто: " + myCar.getAge() + " лет\n");
+        System.out.println("--- Исходные данные ---");
+        System.out.println(myCar.toString());
+        System.out.println("\n------------------------\n");
+        System.out.println(myEV.toString());
+        System.out.println("\n------------------------\n");
 
+        // Изменение свойств через сеттеры (инкапсуляция)
+        myCar.setColor("Красный");
+        myCar.setOwnerName("Александр");
+        
+        myEV.setOwnerName("Дмитрий");
+        ((ElectricCar)myEV).setBatteryCapacity(100);
 
-        System.out.println("[Тестирование класса ElectricCar]");
-        
-        // Создаем объект ElectricCar (наследует все методы Car)
-        ElectricCar myTesla = new ElectricCar("Tesla Model 3", "E777EE", "Белый", 2022);
-        
-        // Инкапсуляция: правильный доступ через сеттеры
-        myTesla.setOwnerName("Петр Петров");
-        myTesla.setInsuranceNumber(987654321);
-        myTesla.setBatteryCapacity(85);
-        
-        // ДЕМОНСТРАЦИЯ НАСЛЕДОВАНИЯ:
-        myTesla.ToString();
-        System.out.println("Владелец: " + myTesla.getOwnerName());
-        System.out.println("Двигатель: " + myTesla.getEngineType());
-        System.out.println("Емкость батареи: " + myTesla.getBatteryCapacity() + " кВтч");
-        System.out.println("Возраст авто: " + myTesla.getAge() + " лет");
+        System.out.println("--- После изменения через сеттеры ---");
+        System.out.println(myCar.toString());
+        System.out.println("\n------------------------\n");
+        System.out.println(myEV.toString());
     }
 }
