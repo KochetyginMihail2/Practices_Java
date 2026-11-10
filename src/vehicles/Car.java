@@ -1,6 +1,5 @@
 package vehicles;
-
-class Car {
+public class Car {
     // Объявление переменных
     String model, license, color;
     int year;
@@ -48,11 +47,7 @@ class Car {
     public void setInsuranceNumber(int insuranceNumber) {this.insuranceNumber = insuranceNumber;}
 
     // Получить возраст модели
-    public int getAge() {
-        if (year != -1)
-            return YEAR_NOW - year;
-        return -1;
-    }
+    public int getAge() {return (year != -1)? YEAR_NOW - year : -1;}
 
     // Вывод информации
     public void ToString(){
@@ -60,6 +55,5 @@ class Car {
         System.out.println("Лицензия автомобиля: " + getLicense());
         System.out.println("Цвет автомобиля: " + getColor());
         System.out.println("Год выпуска автомобиля: " + getYear());
-        System.out.println();
     }
 }
