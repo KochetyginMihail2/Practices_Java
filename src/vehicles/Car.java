@@ -1,8 +1,13 @@
-public class Car {
+package vehicles;
+
+class Car {
     // Объявление переменных
-    private String model, license, color;
-    private int year;
-    private final int YEAR_NOW = 2026;
+    String model, license, color;
+    int year;
+    final int YEAR_NOW = 2026;
+    private String ownerName;
+    private int insuranceNumber;
+    protected String engineType;
 
     // Конструктор со всеми параметрами
     public Car(String model, String license, String color, int year){
@@ -28,13 +33,19 @@ public class Car {
     public String getModel() {return model;}
     public String getLicense() {return license;}
     public String getColor() {return color;}
+    public String getOwnerName() {return ownerName;}
+    public String getEngineType() {return engineType;}
     public int getYear() {return year;}
+    public int getInsuranceNumber() {return insuranceNumber;}
 
     // Сеттеры
     public void setModel(String model) {this.model = model;}
     public void setLicense(String license) {this.license = license;}
     public void setColor(String color) {this.color = color;}
+    public void setOwnerName(String ownerName) {this.ownerName = ownerName;}
+    public void setEngineType(String engineType) {this.engineType = engineType;}
     public void setYear(int year) {this.year = year;}
+    public void setInsuranceNumber(int insuranceNumber) {this.insuranceNumber = insuranceNumber;}
 
     // Получить возраст модели
     public int getAge() {
