@@ -8,6 +8,7 @@ public class Rectangle extends GeometricObject {
     }
 
     public Rectangle(double width, double height) {
+        super();
         this.width = width;
         this.height = height;
     }
