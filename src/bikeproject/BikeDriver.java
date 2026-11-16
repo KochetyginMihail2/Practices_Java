@@ -13,6 +13,13 @@ public class BikeDriver {
 		bike2.printDescription();
 		bike3.printDescription();
 		bike4.printDescription();
+
+		// 8. Обновление высоты стойла для bike1 до 20 вместо 22
+		bike1.setPostHeight(20);
+		
+		// 9. Вывод значений bike1 на экран для подтверждения изменения
+		System.out.println("\n--- После изменения высоты стойла (postHeight) для bike1 ---");
+		bike1.printDescription();
 	}//end method main
 
 }//end class BikeDriver

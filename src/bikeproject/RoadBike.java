@@ -1,6 +1,6 @@
 package bikeproject;
 
-public class RoadBike extends Bike{
+public class RoadBike extends Bike implements RoadParts{
 	
 	private int  tyreWidth, postHeight;
 	
@@ -21,6 +21,20 @@ public class RoadBike extends Bike{
 		this.postHeight = postHeight;
 	}//end constructor
 	
+	// Реализация методов интерфейса RoadParts
+	@Override
+	public int getTyreWidth() { return this.tyreWidth; }
+
+	@Override
+	public void setTyreWidth(int newValue) { this.tyreWidth = newValue; }
+
+	@Override
+	public int getPostHeight() { return this.postHeight; }
+
+	@Override
+	public void setPostHeight(int newValue) { this.postHeight = newValue; }
+	
+	@Override
 	public void printDescription()
 	{
 		super.printDescription();
