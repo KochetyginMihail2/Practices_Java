@@ -14,6 +14,21 @@ public class Months {
             try {
                 String monthName = months[monthNumber - 1];
                 int days = dom[monthNumber - 1];
+                if (monthName == "февраль") {
+                    int year;
+                    System.out.print("Введите год: ");
+
+                    if (input.hasNextInt()) {
+                        year = input.nextInt();
+                        if (isLeapYear(year)) { days++; } 
+                    }
+                    else {
+                        System.out.println("Ошибка: год должен быть целым числом.");
+                        input.close();
+                        return;
+                    }
+                }
+                
                 System.out.println("Месяц: " + monthName);
                 System.out.println("Количество дней: " + days);
             } catch (ArrayIndexOutOfBoundsException ex) {
@@ -25,5 +40,11 @@ public class Months {
         }
 
         input.close();
+    }
+
+    // Метод для определения високосного года
+    public static boolean isLeapYear(int year) {
+        // Год високосный, если он кратен 400 или если он кратен 4, но не кратен 100.
+        return (year % 400 == 0) || (year % 4 == 0 && year % 100 != 0);
     }
 }
